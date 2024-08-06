@@ -1,0 +1,475 @@
+{% include "admin/navbar.html" %}
+
+<!-- mission  -->
+<!-- <div class="container  p-5 rounded-5 bg-white" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Mission</h1>
+        </div>
+        <hr>
+        <form action="/admin/save_mdesign/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-2 p-2">
+                        <p>IMAGE 1 :</p>
+                        <input type="file" name="mimage"  class="form-control" />
+                    </div>
+                    <div class="col-md-2 p-2">
+                        <img src="/{{mimages.mimage}}" width="150px">
+                    </div>
+                    <div class="col-md-2 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                    
+                    
+                   
+                    
+                </div>
+            </div>
+        </form>
+
+        <form action="/admin/save_mdesign2/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-2 p-2">
+                        <p>IMAGE 2 :</p>
+                        <input type="file" name="mimage2"  class="form-control" />
+                    </div>
+                    <div class="col-md-2 p-2">
+                        <img src="/{{mimages2.mimage2}}" width="150px">
+                    </div>
+                    <div class="col-md-2 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+        
+       
+        
+    </div>
+</div>
+</div> -->
+
+
+<!-- mission details -->
+<div class="container mt-3 p-5 rounded-5 bg-white" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Mission Details :</h1>
+        </div>
+        <hr>
+        <form action="/admin/save_mission/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 p-2">
+                        <p>IMAGE :</p>
+                        <input type="file" name="mimage" class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Title :</p>
+                        <input type="text" name="mtitle" class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Discription :</p>
+                        <textarea name="mdis" class="form-control"></textarea>
+                    </div>
+                   
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+       
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Discription</th>
+                    
+                </tr>
+                {% for i in missions %}
+                <tr>
+                    <td>
+                       
+                        <a href="/admin/delete_mission?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        <img src="/{{i.mimage}}" width="100px" height="100px" />
+                    </td>
+                    <td>{{i.mtitle}}</td>
+
+                    <td>{{i.mdis}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </table>
+        </div> 
+    </div>
+</div>
+</div>
+
+<!-- Our vision -->
+<div class="container mt-3  p-5 rounded-5 bg-white" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Our Vision :</h1>
+        </div>
+        <hr>
+        <form action="/admin/save_vision/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 p-2">
+                        <p>Title :</p>
+                        <input type="text" name="vtitle" class="form-control" />
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <p>Image :</p>
+                        <input type="file" name="vimage" class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Discription :</p>
+                        <textarea name="vdis" class="form-control"></textarea>
+                    </div>
+                   
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+       
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Title</th>
+                    <th>Image</th>
+                    <th>Discription</th>
+                    
+                </tr>
+                {% for i in visions %}
+                <tr>
+                    <td>
+                       
+                        <a href="/admin/delete_vision?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.vtitle}}</td>
+                    <td>
+                        <img src="/{{i.vimage}}"/>
+                    </td>
+
+                    <td>{{i.vdis}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </table>
+        </div> 
+    </div>
+</div>
+
+
+
+<!-- our values -->
+<div class="container mt-3 p-5 rounded-5 bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Our Values :</h1>
+        </div>
+        <hr>
+        <form action="/admin/save_values/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+
+                    <div class="col-md-4 p-2">
+                        <p>Image :</p>
+                        <input type="file" name="valimage" class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Title :</p>
+                        <input type="text" name="valtitle" class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Details :</p>
+                        <textarea name="valdetails" class="form-control"></textarea>
+                    </div>
+                   
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+       
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Details</th>
+                    
+                </tr>
+                {% for i in values %}
+                <tr>
+                    <td>
+                       
+                        <a href="/admin/delete_values?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+
+                    <td>
+                        <img src="/{{i.valimage}}" width="100px" height="100px" />
+                    </td>
+
+                    <td>{{i.valtitle}}</td>
+                   
+
+                    <td>{{i.valdetails}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </table>
+        </div> 
+    </div>
+</div>
+
+
+
+<!-- vision Cards -->
+<div class="container mt-3 p-5 rounded-5 bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Vision Cards:</h1>
+        </div>
+        <hr>
+        <form action="/admin/save_vcard/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+
+                    <!-- <div class="col-md-4 p-2">
+                        <p>Discription :</p>
+                        <textarea name="vcdis" class="form-control"></textarea>
+                    </div> -->
+
+                    <div class="col-md-4 p-2">
+                        <p>Image :</p>
+                        <input type="file" name="vcimage" class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Image Title :</p>
+                        <input type="text" name="vcimgtitle" class="form-control" />
+                    </div>
+                   
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+       
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                   
+                    
+                   
+                    
+                    
+                </tr>
+                {% for i in vcards %}
+                <tr>
+                    <td>
+                       
+                        <a href="/admin/delete_vcard?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+
+                    <td>
+                        <img src="/{{i.vcimage}}" width="100px" height="100px" />
+                    </td>
+
+                    <td>{{i.vcimgtitle}}</td>
+
+                   
+
+                    
+
+                    
+                   
+
+                    
+                    
+                </tr>
+                {% endfor %}
+            </table>
+        </div> 
+    </div>
+</div>
+
+
+
+<!-- History -->
+<div class="container mt-3 p-5 rounded-5 bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>History Cards :</h1>
+        </div>
+        <hr>
+        <form action="/admin/save_history/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+
+                    <div class="col-md-4 p-2">
+                        <p>Left Side Image :</p>
+                        <input type="file" name="himage" class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Date and Year :</p>
+                        <input type="text" name="hdate" class="form-control" />
+                    </div>
+                   
+                    <div class="col-md-4 p-2">
+                        <p>Details :</p>
+                        <textarea name="hdetails" class="form-control"></textarea>
+                    </div>
+
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+<hr class="mt-5">
+        <form action="/admin/save_rhistory/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+
+                    <div class="col-md-4 p-2">
+                        <p>Right Side Image :</p>
+                        <input type="file" name="rhimage" class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Date and Year :</p>
+                        <input type="text" name="rhdate" class="form-control" />
+                    </div>
+                   
+                    <div class="col-md-4 p-2">
+                        <p>Details :</p>
+                        <textarea name="rhdetails" class="form-control"></textarea>
+                    </div>
+
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+       
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    <th>Date</th>
+                    <th>Details</th>
+                    
+                    
+                </tr>
+                {% for i in hcards %}
+                <tr>
+                    <td>
+                    
+                        <a href="/admin/delete_history?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+
+                    
+
+                    <td>
+                        <img src="/{{i.himage}}" width="100px" height="100px" />
+                    </td>
+
+                    <td>{{i.hdate}}</td>
+                   
+                    <td>{{i.hdetails}}</td>
+                    
+                    
+                </tr>
+                {% endfor %}
+
+      <!-- ---------------------------------------------------------- -->
+                {% for i in rhcards %}
+                <tr>
+                    <td>
+                    
+                        <a href="/admin/delete_rhistory?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+
+                    
+
+                    <td>
+                        <img src="/{{i.rhimage}}" width="100px" height="100px" />
+                    </td>
+
+                    <td>{{i.rhdate}}</td>
+                   
+                    <td>{{i.rhdetails}}</td>
+                    
+                    
+                </tr>
+                {% endfor %}
+
+
+
+            </table>
+        </div> 
+    </div>
+</div>
+
+
+{% include "admin/footer.html" %}

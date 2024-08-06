@@ -1,0 +1,364 @@
+{% include "user/navbar.html"%}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+<!-- icon -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- css -->
+
+<style type="text/css">
+.text{
+font-family: serif;
+text-transform: capitalize;
+letter-spacing: 10px;
+line-height: 2.0;
+}
+.showcase{
+background-color: #f0f8ff;
+}
+.showcase:hover{
+background-color: black;
+color: white;
+ transform: scale(0.9,0.9); 
+}
+.showcase-btn:hover{
+transform: scale(0.9,0.9); 
+}
+#showcase1-2{
+display: none;
+}
+
+
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+margin-top: 50px; /* Location of the box */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+
+background-color: white /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+background-color: #fefefe;
+
+}
+
+/* The Close Button */
+.close, .close2, .close3 {
+font-size: 50px;
+
+}
+
+.close, .close2, .close3:hover,
+.close, .close2, .close3:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}
+
+
+</style>
+
+
+
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12 text-center p-5">
+			<h2 class="text">GALLERY</h2>
+		</div>
+	</div>
+</div>
+
+<!-- 2 -->
+
+<div class="container-fluid">
+	<div class="row  text-center">
+
+<!-- first demo -->
+{% for i in s1imgs %}
+<div class="col-md-4 p-3">
+	
+	<div class="card" data-aos="zoom-in">
+		<img src="/{{i.s1img}}" class="rounded-2" height="300px"  id="myBtn{{forloop.counter}}" onclick="open_model(`/{{i.s1img}}`)">
+	</div>
+	
+</div>
+{% endfor %}
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+<div class="container ">
+	<div class="row justify-content-center">
+		<div class="col-md-10">
+			<div class="modal-content p-0 " style="margin-top: -90px;">
+				<span class="close shadow  mt-0 mb-2 ">&times;</span>
+					<img src="" style="height:450px;" id="show_image" class="shadow rounded-2">
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+// var btn = document.getElementById("myBtn1");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+function open_model(path) 
+{
+document.getElementById("show_image").src = path;
+modal.style.display = "block";
+
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal) {
+modal.style.display = "none";
+}
+}
+</script>
+
+<!-- first demo End-->
+
+</div>
+</div>
+
+<!-- 3 -->
+
+
+
+<!-- 4 -->
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 col-lg-6 text-center p-5 btn showcase-btn" style="background-color: #ffe4e4;" onclick="showcase1()">
+			<h4><span><ion-icon name="images-outline" class="mr-3"></ion-icon></span>Orientation Seesion organized on 15 Oct 2022</h4>
+		</div>
+
+		<div class="col-md-12 col-lg-6 text-center p-5 showcase btn btn" onclick="showcase2()">
+			<h4><span><ion-icon name="images-outline" class="mr-3"></ion-icon></span>Session  Lab 17 Jan 2023</h4>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 4-1 -->
+<div class="container-fluid" id="showcase1-1">
+<div class="row " >
+
+
+<!-- Second DEmo -->
+
+{% for i in s2imgs %}
+<div class="col-md-12 col-lg-4 p-3">
+	
+	<div class="card" data-aos="zoom-in">
+		<img src="/{{i.s2img}}" class="rounded-2" height="300px"  id="myBtn{{forloop.counter}}" onclick="open_model2(`/{{i.s2img}}`)">
+	</div>
+	
+</div>
+{% endfor %}
+
+
+<!-- The Modal -->
+<div id="myModal2" class="modal">
+
+<!-- Modal content -->
+<div class="container ">
+	<div class="row justify-content-center">
+		<div class="col-md-10">
+			<div class="modal-content" style="margin-top: -90px;">
+				<span class="close2 shadow mt-0 mb-2 text-center">&times;</span>
+
+				<img src="" style="height:450px;" id ="show_image2" class="shadow rounded-2">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	// Get the modal
+	var modal_sec = document.getElementById("myModal2");
+	
+	// Get the button that opens the modal
+	// var btn_thir = document.getElementById("open_third");
+	
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close2")[0];
+	
+	// When the user clicks the button, open the modal 
+	function open_model2(path) 
+	{
+	document.getElementById("show_image2").src = path;
+	modal_sec.style.display = "block";
+	
+	}
+	
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	modal_sec.style.display = "none";
+	}
+	
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	if (event.target == modal_sec) {
+	modal_sec.style.display = "none";
+	}
+	}
+	</script>
+	
+<!-- Second DEmo End -->
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<!-- 4-2 -->
+
+<div class="container-fluid" id="showcase1-2">
+<div class="row  m-0" >
+
+		{% for i in s3imgs %}
+		<div class="col-md-12 col-lg-4 p-3">
+			
+			<div class="card" data-aos="zoom-in">
+				<img src="/{{i.s3img}}"class="rounded-2" height="300px"  id="myBtn{{forloop.counter}}" onclick="open_model3(`/{{i.s3img}}`)">
+			</div>
+			
+		</div>
+		{% endfor %}
+
+<!-- The Modal -->
+<div id="myModal3" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content" style="margin-top: -90px;">
+			<span class="close3 shadow  mt-0 mb-2 text-center">&times;</span>
+			<img src="" style="height:450px;" id ="show_image3" class="shadow rounded-2">
+		</div>
+
+
+
+<script>
+// Get the modal
+var modal_thir = document.getElementById("myModal3");
+
+// Get the button that opens the modal
+// var btn_thir = document.getElementById("open_third");
+
+// Get the <span> element that closes the 
+var	span = document.getElementsByClassName("close3")[0];
+
+// When the user clicks the button, open the modal 
+function open_model3(path) 
+{
+document.getElementById("show_image3").src = path;
+modal_thir.style.display = "block";
+
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+modal_thir.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal_thir) {
+modal_thir.style.display = "none";
+}
+}
+</script>
+
+</div>
+</div>
+</div>
+
+<!-- 5 -->
+<hr>
+
+{% for i in s4vid %}
+<div class="container-fluid">
+
+	<div class="row p-2 mb-5">
+		<div class="col-md-12 col-lg-4 text-center">
+			<p class="mt-5" style="font-family: serif; font-size: 22px;">{{i.s4edis}}</p>
+		</div>
+
+		<div class="col-md-12 col-lg-4 text2" data-aos="fade-up">
+			<img src="/{{i.s4vid}}" class="w-100 h-100" >
+		</div>
+
+		<div class="col-md-12 col-lg-4 text-center">
+			<p class="mt-5" style="font-family: serif;">{{i.s4mdis}}</p>
+		</div>
+	</div>
+</div>
+{% endfor %}
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+        <!-- our aos data -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+        AOS.init({
+            offset: 300,
+            duration: 1000,
+        });
+
+        function showcase1(){
+        	document.getElementById('showcase1-2').style="display:none";
+        	document.getElementById('showcase1-1').style="display:inline-block";
+        }
+        function showcase2(){
+        	document.getElementById('showcase1-1').style="display:none";
+        	document.getElementById('showcase1-2').style="display:inline";
+        }
+</script>
+
+{% include "user/footer.html"%}

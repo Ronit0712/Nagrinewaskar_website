@@ -1,0 +1,241 @@
+{% include "user/navbar.html"%}
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.0/dist/aos.css">
+    
+
+
+<!-- Aos Animation link -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.0/dist/aos.css">
+
+
+
+<style type="text/css">
+    .main_box{
+        margin-top: 50px;
+    }
+	.center_box{
+		height: 175px;
+		width: 175px;
+		float: left;
+		border-radius: 50%;
+		position: absolute;
+		top: 150px;
+		left: 670px;
+		
+	}
+	.img1{
+		height: 250px;
+        width: 350px;
+		float: left;
+		position: absolute;
+		top: 40px;
+		left: 260px;
+	}
+
+	.img11{
+		height: 130px;
+        width: 240px;
+		float: left;
+		position: absolute;
+		top: 0px;
+		left: 640px;
+	}
+
+	.img2{
+
+		height: 160px;
+		width: 220px;
+		float: left;
+		top: 50px;
+		left: 910px;
+
+		position: absolute;
+	}
+	.img3{
+		height: 180px;
+        width: 300px;
+		float: left;
+		position: absolute;
+	    overflow: hidden;
+        top: 320px;
+		left: 310px;
+	}
+	.img33{
+		height: 150px;
+		width: 250px;
+		float: left;
+		position: absolute;
+        top: 350px;
+		left: 640px;
+	}
+
+
+	.img4{
+		height: 300px;
+		width: 250px;
+		float: left;
+		position: absolute;
+		top: 230px;
+		left: 920px;
+	}
+
+    .hr1{
+        margin-top: 500px;
+    }
+
+
+@media(max-width: 667px){
+	.main_box{
+        height: 1800px;
+        overflow: hidden;
+
+	}
+    .center_box{
+		top: 0px;
+		left: 90px;
+        
+
+	}
+	.img1{
+        left: 25px;
+        top: 220px;
+        width: 300px;
+        height: 200px;	
+        
+
+	}
+
+	.img11{
+		position: absolute;
+		top: 480px;
+		left: 25px;
+        width: 300px;
+        height: 200px;
+        
+
+	}
+
+	.img2{
+		top: 740px;
+		left: 25px;
+		position: absolute;
+        width: 300px;
+        height: 200px;
+        
+
+	}
+	.img3{
+		top: 1000px;
+		left: 25px;
+        width: 300px;
+        height: 200px;
+        
+
+	}
+
+	.img33{
+		top: 1260px;
+        left: 25px;
+        width: 300px;
+        height: 200px;
+       
+
+		
+	}
+
+
+	.img4{
+		top: 1530px;
+        left: 25px;
+        width: 300px;
+        height: 200px;
+       
+	}
+
+    .hr1{
+        margin-top: 100px;
+    }
+
+}
+
+</style>
+
+
+
+	<div class="container-fluid p-4 main_box mb-5 ">
+		<div class="row mb-4">
+			<div  class="col-md-12 ">
+				<div data-aos="zoom-in" class="center_box shadow ">
+					<img src="/static/images/logo2.jpg" class="img-fluid rounded-circle " >
+				</div>
+
+				<div data-aos="fade-right" class="img1 shadow rounded-4">
+					<img src="/static/images/food.webp" class=" w-100 h-100 img-fluid rounded-4">
+				</div>
+
+				
+				<div data-aos="fade-down" class="img11 shadow rounded-4">
+					<img class="img-fluid h-100 w-100 rounded-4" src="/static/images/mission1.jpg ">
+				</div>
+				
+				<div data-aos="fade-left" class="img2 shadow rounded-4">
+					<img class=" img-fluid h-100 w-100 rounded-4" src="/static/images/mission1.jpg">
+				</div>
+
+				<div data-aos="fade-right" class="img3 shadow rounded-4">
+					<img class="  img-fluid h-100 w-100 rounded-4" src="/static/images/helping_hands.jpg">
+				</div>
+
+				<div data-aos="fade-up" class="img33 shadow rounded-4">
+					<img class=" img-fluid h-100 w-100 rounded-4" src="/static/images/poor.jpg">
+				</div>
+
+				<div data-aos="fade-left" class="img4 shadow rounded-4">
+					<img class="  img-fluid  h-100 w-100 rounded-4" src="/static/images/student11.jpg">
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+<script src='https://unpkg.com/aos@2.3.0/dist/aos.js'></script>
+<script id="rendered-js">
+    AOS.init({
+        duration:1200
+ });
+</script>
+
+<hr class="hr1">
+
+
+
+<div class="container-fluid border border-danger rounded-4 p-3 mt-4">
+    <div class="col-md-12 text-white text-center p-3 m_box  rounded-4">
+        <h2 data-aos="zoom-in" id="demo" class="text">Our Mission</h2>
+    </div>
+</div>
+
+{% for i in missions%}
+<div class="container-fluid  section2_box mb-5 justify-content-center">
+  <div class="row mt-5 p-3">
+    <div class="col-md-6 bg-white p-4 rounded-3 shadow text-black" data-aos="fade-right">
+      <p style="font-family:sans-serif;">
+        <h4>{{i.mtitle}}</h4>
+		 <br><br>
+		 {{i.mdis}}
+      </p>
+    </div>
+    <div class="col-md-6 mt-3" data-aos="fade-left">
+      <img src="/{{i.mimage}}" style="height:300px; width: 100%;" class="img-fluid">
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+
+{% include "user/footer.html"%}

@@ -1,0 +1,250 @@
+{% include "admin/navbar.html" %}
+<!-- section 1 images -->
+<div class="container mt-3 p-5 rounded-5 bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Section 1 Images :</h1>
+        </div>
+        <hr>
+        <form action="/admin/save_s1img/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+
+                    <div class="col-md-4 p-2">
+                        <p>Image :</p>
+                        <input type="file" name="s1img" class="form-control" />
+                    </div>
+
+                
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+       
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    
+                    
+                </tr>
+                {% for i in s1imgs %}
+                <tr>
+                    <td>
+                      
+                        <a href="/admin/delete_s1img?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+
+                    <td>
+                        <img src="/{{i.s1img}}" width="100px" height="100px" />
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </table>
+        </div> 
+    </div>
+</div>
+</div>
+
+
+<!-- section 2 images -->
+<div class="container mt-3 p-5 rounded-5 bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Section 2 Images :</h1>
+        </div>
+        <hr>
+        <form action="/admin/save_s2img/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+
+                    <div class="col-md-4 p-2">
+                        <p>Image :</p>
+                        <input type="file" name="s2img" class="form-control" />
+                    </div>
+
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+       
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    
+                    
+                </tr>
+                {% for i in s2imgs %}
+                <tr>
+                    <td>
+                       
+                        <a href="/admin/delete_s2img?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+
+                    <td>
+                        <img src="/{{i.s2img}}" width="100px" height="100px" />
+                    </td>
+
+            
+                </tr>
+                {% endfor %}
+            </table>
+        </div> 
+    </div>
+</div>
+
+
+
+
+<!-- section 3 images -->
+<div class="container mt-3 p-5 rounded-5 bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Section 3 Images :</h1>
+        </div>
+        <hr>
+        <form action="/admin/save_s3img/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+
+                    <div class="col-md-4 p-2">
+                        <p>Image :</p>
+                        <input type="file" name="s3img" class="form-control" />
+                    </div>
+
+                   
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+       
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    
+                    
+                </tr>
+                {% for i in s3imgs %}
+                <tr>
+                    <td>
+                      
+                        <a href="/admin/delete_s3img?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+
+                    <td>
+                        <img src="/{{i.s3img}}" width="100px" height="100px" />
+                    </td>
+
+                
+                    
+                </tr>
+                {% endfor %}
+            </table>
+        </div> 
+    </div>
+</div>
+
+
+
+<!-- section 4 (video and Discription) -->
+
+<div class="container mt-3 p-5 rounded-5 bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Section 4 Video :</h1>
+        </div>
+        <hr>
+        <form action="/admin/save_s4vid/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+
+                    <div class="col-md-4 p-2">
+                        <p>Video :</p>
+                        <input type="file" name="s4vid" class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>English Discription :</p>
+                        <textarea name="s4edis" class="form-control"></textarea>
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Marathi Discription :</p>
+                        <textarea name="s4mdis" class="form-control"></textarea>
+                    </div>
+
+                    
+                   
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+       
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Video</th>
+                    <th>English Discription</th>
+                    <th>Marathi Discription</th>
+                    
+                    
+                </tr>
+                {% for i in s4vid %}
+                <tr>
+                    <td>
+                       
+                        <a href="/admin/delete_s4vid?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+
+                    <td>
+                        <img src="/{{i.s4vid}}" width="100px" height="100px" />
+                    </td>
+
+
+                    <td>{{i.s4edis}}</td>
+                    <td>{{i.s4mdis}}</td>
+
+                
+                    
+                </tr>
+                {% endfor %}
+            </table>
+        </div> 
+    </div>
+</div>
+{% include "admin/footer.html" %}

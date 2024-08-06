@@ -1,0 +1,137 @@
+{% include "admin/navbar.html" %}
+
+<!-- Activity Slider -->
+<div class="container  p-5 rounded-5 bg-white" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Activity Slider</h1>
+        </div>
+        <hr/>
+
+        <form action="/admin/save_actslider/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 p-2">
+                        <p>Slider Image</p>
+                        <input type="file" name="actimage" class="form-control" />
+                    </div>
+
+
+                    <div class="col-md-4 p-2">
+                        <p> Title</p>
+                        <input type="text" name="acttitle"  class="form-control" />
+                    </div>
+
+                   
+
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Slider Image</th>
+                    <th>Title</th>
+                    
+                </tr>
+                {% for i in actslides %}
+                <tr>
+                    <td>
+                      
+                        <a href="/admin/delete_actslide?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        <img src="/{{i.actimage}}"/>
+                    </td>
+                    <td>{{i.acttitle}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </table>
+        </div> 
+        
+    </div>
+</div>
+</div>
+
+
+<!-- Activity -->
+<div class="container  p-5 rounded-5 bg-white" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Activities</h1>
+        </div>
+        <hr/>
+
+        <form action="/admin/save_activity/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+
+                    
+
+                    <div class="col-md-4 p-2">
+                        <p>Image</p>
+                        <input type="file" name="actiimage" class="form-control" />
+                    </div>
+
+
+                    <div class="col-md-4 p-2">
+                        <p>Title</p>
+                        <input type="text" name="actititle"  class="form-control" />
+                    </div>
+
+                   
+
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    
+                    <th>Image</th>
+                    <th>Title</th>
+                    
+                </tr>
+                {% for i in activities %}
+                <tr>
+                    <td>
+                       
+                        <a href="/admin/delete_activity?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+                    <td>{{forloop.counter}}</td>
+                    
+                    <td>
+                        <img src="/{{i.actiimage}}" width="100px" height="100px" />
+                    </td>
+                    <td>{{i.actititle}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </table>
+        </div> 
+        
+    </div>
+</div>
+
+
+{% include "admin/footer.html" %}

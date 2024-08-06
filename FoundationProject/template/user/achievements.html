@@ -1,0 +1,505 @@
+{% include "user/navbar.html"%}
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <style>
+        .bg_achievment {
+            
+            height: 250px;
+            
+        }
+
+
+        /* Left & Right alignment */
+        .left {
+            float: left
+        }
+
+        .right {
+            float: right
+        }
+
+        .wrapper {
+            width: 100%;
+            overflow: hidden
+        }
+
+
+
+        .ic,
+        .ic a {
+            border: 0;
+            float: right;
+            background: #fff;
+            color: #f00;
+            width: 50%;
+            line-height: 10px;
+            font-size: 10px;
+            margin: -220% 0 0 0;
+            overflow: hidden;
+            padding: 0
+        }
+
+        .css3 {
+            border-radius: 8px;
+            -moz-border-radius: 8px;
+            -webkit-border-radius: 8px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, .4);
+            -moz-box-shadow: 0 0 4px rgba(0, 0, 0, .4);
+            -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, .4);
+            position: relative
+        }
+
+       
+
+        /* ============================= main layout ====================== */
+        a {
+            color: #575652;
+            text-decoration: underline;
+            outline: none
+        }
+
+        a:hover {
+            text-decoration: none
+        }
+
+       
+
+        h2 {
+            font-size: 35px;
+            color: #575652;
+            font-weight: 400;
+            line-height: 1.2em;
+            letter-spacing: -1px;
+            padding-bottom: 12px
+        }
+
+        h2 span {
+            font-weight: 300
+        }
+
+        h2 strong,
+        .box1 h2 strong {
+            font-weight: 700;
+            display: inline-block;
+            width: 36px;
+            color: #fff;
+            text-align: center;
+            background: url(../images/bg_title1.gif) 0 4px repeat-x;
+            margin-right: 3px
+        }
+
+        h2.color2 strong {
+            background-image: url(../images/bg_title2.gif)
+        }
+
+        h2.color3 strong {
+            background-image: url(../images/bg_title3.gif)
+        }
+
+        h3 {
+            font-size: 35px;
+            color: #dad6cc;
+            font-weight: 400;
+            line-height: 1.2em;
+            padding: 25px 0 0 35px;
+            float: left;
+            letter-spacing: -1px
+        }
+
+        h4 {
+            color: #e73212;
+            font-weight: 300;
+            font-size: 35px;
+            line-height: 1.2em;
+            padding: 0 0 7px 0;
+            letter-spacing: -1px
+        }
+
+        h4 span {
+            color: #ffc11e;
+            font-weight: 400
+        }
+
+        h4.color2 span {
+            color: #9ecf39
+        }
+
+        h4.color3 span {
+            color: #6cd6af
+        }
+
+        #page4 h4,
+        #page5 h4 {
+            padding: 25px 0 16px 0;
+            margin-left: -3px
+        }
+
+        p {
+            padding-bottom: 22px
+        }
+
+        strong {
+            color: #000
+        }
+
+
+
+        /* ============================= content ====================== */
+       
+
+        .pad_left1 {
+            padding-left: 26px
+        }
+
+        .pad_left2 {
+            padding-left: 36px
+        }
+
+        .pad_bot1 {
+            padding-bottom: 14px
+        }
+
+        .pad_bot2 {
+            padding-bottom: 4px
+        }
+
+        .marg_right1 {
+            margin-right: 37px
+        }
+
+        .box1 {
+            
+            border-top: 2px solid #e41e24;
+            border-bottom: 2px solid #e41e24;
+
+            padding: 15px 30px 29px
+        }
+
+        /* .box1 strong {
+            color: #3f3f3f
+        } */
+
+        .box1 figure {
+            box-shadow: 0 0 3px #a4a19a;
+            -moz-box-shadow: 0 0 3px #a4a19a;
+            -webkit-box-shadow: 0 0 3px #a4a19a;
+            position: relative
+        }
+
+        .box2 {
+
+            /* background-image: radial-gradient(white,red); */
+            background-color: white;
+            padding: 25px 30px 32px
+        }
+
+        .box2 .line1,
+        .box2 .line2 {
+            background-image: url(../images/line_vert2.gif)
+        }
+
+        #page4 .box2 {
+            margin-top: 7px;
+            padding-top: 30px;
+            padding-bottom: 28px
+        }
+
+        .line1 {
+            background: url(../images/line_vert1.gif) 289px 0 repeat-y
+        }
+
+        .line2 {
+            background: url(../images/line_vert1.gif) 591px 0 repeat-y
+        }
+
+        #page3 .line1 {
+            background-position: 282px 0
+        }
+
+        .relative {
+            position: relative
+        }
+
+        .button1 {
+            float: right;
+            color: #dddad1;
+            text-decoration: none;
+            background: #000;
+            line-height: 18px;
+            padding: 0 9px;
+            margin-top: 2px
+        }
+
+        *+html .button1 {
+            margin-top: -20px
+        }
+
+        .button1 {
+            color: #dddad1
+        }
+
+        .button1:hover {
+            background: #ffb919;
+            color: #fff
+        }
+
+        .button1.color2 {
+            color: #dddad1
+        }
+
+        .button1.color2:hover {
+            background: #94c932;
+            color: #fff
+        }
+
+        .button1.color3 {
+            color: #dddad1
+        }
+
+        .button1.color3:hover {
+            background: #63d1a7;
+            color: #fff
+        }
+
+        .button2 {
+            display: inline-block;
+            font-size: 15px;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0 21px;
+            height: 36px;
+            line-height: 34px;
+            font-weight: 400;
+            background: url(../images/button1_bg.gif) top repeat-x;
+            letter-spacing: -1px
+        }
+
+        .button2.color2 {
+            background-image: url(../images/button2_bg.gif)
+        }
+
+        .button2.color3 {
+            background-image: url(../images/button3_bg.gif)
+        }
+
+        .button2:hover {
+            background: #000
+        }
+
+        .color0 {
+            color: #616161;
+            text-decoration: none
+        }
+
+        .link1 {
+            text-decoration: none
+        }
+
+        .link1:hover {
+            text-decoration: underline
+        }
+
+        .quot {
+            margin-top: 17px;
+            float: left;
+            margin-left: 94px;
+            padding: 12px 0 17px 41px;
+            font-style: italic;
+            background: url(../images/quot1.png) 0 0 no-repeat;
+            width: 570px
+        }
+
+        .quot img {
+            display: inline-block;
+            margin: 4px 0 0 9px
+        }
+
+        #page2 .quot {
+            padding-bottom: 7px
+        }
+
+        .list1 {
+            margin-top: -2px;
+            margin-bottom: -2px
+        }
+
+        .list1 li {
+            line-height: 26px
+        }
+
+        .list1 li a {
+            color: #dcd8cf;
+            padding-left: 22px;
+            background: url(../images/marker_1.gif) 0 3px no-repeat
+        }
+
+        .list1 .color2 a {
+            background-position: 0 -23px
+        }
+
+        .list1 .color3 a {
+            background-position: 0 -49px
+        }
+
+  
+
+        .tabs ul.nav {
+            padding: 27px 0 27px 2px;
+            overflow: hidden
+        }
+
+        .tabs ul.nav li {
+            float: left;
+            padding-left: 31px
+        }
+
+        .tabs ul.nav li a {
+            font-size: 35px;
+            color: #ddd9cf;
+            font-weight: 400;
+            text-decoration: none;
+            line-height: 1.2em;
+            letter-spacing: -1px
+        }
+
+        .tabs ul.nav .selected a,
+        .tabs ul.nav a:hover {
+            color: #ffc11e
+        }
+
+       
+        .address {
+            float: left;
+            width: 80px
+        }
+
+        .img1 {
+            position: absolute;
+            right: 0;
+            top: 32px
+        }
+
+
+
+       
+        
+    </style>
+
+
+
+
+
+    <!-- Aos Animation link -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/aos@2.3.0/dist/aos.css">
+    <script src='https://unpkg.com/aos@2.3.0/dist/aos.js'></script>
+    <script id="rendered-js">
+        AOS.init({
+            duration: 1200
+        });
+    </script> -->
+
+
+
+    <div class="container-fluid bg_achievment" style="overflow: hidden;">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center text" style="margin-top: 70px; font-size: 50px; text-shadow: 2px 2px 2px gray; color:#e41e24;" data-aos="fade-left">
+                    Achievements</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid mb-5" >
+       
+
+        <div class="col-md-12 ">
+            <div class="wrapper">
+                <div class="box1 rounded-5 bg-white">
+                    <div class="wrapper ">
+                        <section class="col1 ">
+                            <h2><strong style="background-color: #e41e24;">A</strong><span> {{achievements.achivtitle}}</span></h2>
+                            <div class="line1">
+                                <figure class="left marg_right1">
+                                	<img
+                                        src="/{{achievements.achivimage}}"
+                                        height="200px" width="300px" alt="" data-aos="zoom-in">
+                                 </figure>
+                                <p class="pad_bot1"> {{achievements.achivdis}} </p>
+                               
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+
+        <div class="col-md-12 mt-5">
+            <div class="wrapper">
+                <div class="box2 rounded-5 ">
+                    <div class="wrapper tab-content">
+                        <section class="col1">
+
+                          
+
+                            {% for i in achive %}
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="/{{i.achivimage}}"
+                                        class="w-100" data-aos="zoom-in">
+                                </div>
+                                <div class="col-md-9">
+                            		<h4 class="color2" data-aos="fade-left">{{i.achivdate}}</h4>
+
+                                    <p class="pad_bot2"><strong>{{i.achivtitle}}</strong></p>
+                                    <p style="text-align: justify;">{{i.achivdis}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                         {% endfor %}
+
+
+                         
+                        </section>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+  
+
+
+
+    <!-- <script type="text/javascript">Cufon.now(); tabs.init();</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script> -->
+
+
+<!-- Aos Animation link -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.0/dist/aos.css">
+<script src='https://unpkg.com/aos@2.3.0/dist/aos.js'></script>
+<script id="rendered-js">
+    AOS.init({
+        duration: 1200
+    });
+</script>
+
+{% include "user/footer.html"%}

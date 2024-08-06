@@ -1,0 +1,294 @@
+{% include "admin/navbar.html" %}
+
+<!-- Home -->
+<!-- slider -->
+<div class="container  p-5 rounded-5 bg-white" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Home Slider</h1>
+        </div>
+        <hr/>
+
+        <form action="/admin/save_home/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 p-2">
+                        <p>Slider Image</p>
+                        <input type="file" name="slider_image" class="form-control" />
+                    </div>
+
+
+                    <div class="col-md-4 p-2">
+                        <p>slider_title</p>
+                        <input type="text" name="slider_title" class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>slider_description</p>
+                        <input type="text" name="slider_description"  class="form-control" />
+                    </div>
+
+                   
+
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-md-12 mt-5 table-responsive" >
+            <table class="table table-sm table-borderd  text-center" style=" color: rgb(77, 32, 57);;font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                </tr>
+                {% for i in home %}
+                <tr>
+                    <td>
+                        
+                        <a href="/admin/delete_home?id={{i.id}}">
+                            <button class="btn "><i class="fa fa-trash"></i></button>
+                            </a>
+                    </td>
+                   
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        <img src="/{{i.slider_image}}" width="200px">
+                    </td>
+                    <td>{{i.slider_title}}</td>
+                    <td>{{i.slider_description}}</td>
+
+                </tr>
+               {% endfor %}
+            
+            </table>
+         </div>
+
+        </div>
+</div>
+</div>  
+
+<!-- services -->
+<div class="container mt-4  p-5 rounded-5 bg-white" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Services</h1>
+        </div>
+        <hr/>
+
+        <form action="/admin/save_services/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 p-2">
+                        <p>Services Image</p>
+                        <input type="file" name="services_image" class="form-control" />
+                    </div>
+
+
+                    <div class="col-md-4 p-2">
+                        <p>Services Title</p>
+                        <input type="text" name="services_title"  class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Services Description</p>
+                        <input type="text" name="services_description"  class="form-control" />
+                    </div>
+
+                   
+
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-md-12 mt-5 table-responsive" >
+            <table class="table table-sm table-borderd  text-center" style=" color: rgb(77, 32, 57);;font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                </tr>
+                {% for i in services %}
+                <tr>
+                    <td>
+                        <a href="/admin/delete_services?id={{i.id}}">
+                            <button class="btn "><i class="fa fa-trash-o"></i></button>
+                        </a>
+                    </td>
+
+                  
+                    
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        <img src="/{{i.services_image}}" width="200px">
+                    </td>
+                    <td>{{i.services_title}}</td>
+                    <td>{{i.services_description}}</td>
+
+                </tr>
+               {% endfor %}
+            
+            </table>
+        </div>  
+    </div>
+</div>
+
+<!-- certificate -->
+<div class="container mt-4  p-5 rounded-5 bg-white" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Certificate</h1>
+        </div>
+        <hr/>
+
+        <form action="/admin/save_certifide/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 p-2">
+                        <p>Certificate_Image</p>
+                        <input type="file" name="certifide_image" class="form-control" />
+                    </div>
+
+
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-md-12 mt-5 table-responsive" >
+            <table class="table table-sm table-borderd  text-center" style=" color: rgb(77, 32, 57);;font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                   
+                </tr>
+                {% for i in certifide %}
+                <tr>
+                    <td>
+                      <a href="/admin/delete_certifide?id={{i.id}}">
+                        <button class="btn "><i class="fa fa-trash"></i></button>
+                    </a>
+                    </td>
+
+                  
+                    
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        <img src="/{{i.certifide_image}}" width="200px">
+                    </td>
+                    
+
+                </tr>
+               {% endfor %}
+            
+            </table>
+             </div>  
+
+    </div>
+</div>
+
+<!-- blogs -->
+<div class="container mt-4  p-5 rounded-5 bg-white" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Blogs</h1>
+        </div>
+        <hr/>
+
+        <form action="/admin/save_blogs/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 p-2">
+                        <p>Blogs Image</p>
+                        <input type="file" name="blogs_image" class="form-control" />
+                    </div>
+
+
+                    <div class="col-md-4 p-2">
+                        <p>Blog Title</p>
+                        <input type="text" name="blogs_title"  class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Blogs Description</p>
+                        <input type="text" name="blogs_description"  class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Blog Date</p>
+                        <input type="text" name="blogs_text"  class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Blog By</p>
+                        <input type="text" name="blogs_head"  class="form-control" />
+                    </div>
+
+                   
+
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-md-12 mt-5 table-responsive" >
+            <table class="table table-sm table-borderd  text-center" style=" color: rgb(77, 32, 57);;font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Blog By</th>
+
+
+                </tr>
+                {% for i in blogs %}
+                <tr>
+                    <td>
+                       
+                        <a href="/admin/delete_blogs?id={{i.id}}">
+                        <button class="btn "><i class="fa fa-trash"></i></button>
+                        </a>
+                    </td>
+
+                  
+                    
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        <img src="/{{i.blogs_image}}" width="200px" height="200px">
+                    </td>
+                    <td>{{i.blogs_title}}</td>
+                    <td>{{i.blogs_description}}</td>
+                    <td>{{i.blogs_text}}</td>
+                    <td>{{i.blogs_head}}</td>
+                </tr>
+               {% endfor %}
+            
+            </table>
+        </div>  
+    </div>
+</div>
+
+
+
+{% include "admin/footer.html" %}

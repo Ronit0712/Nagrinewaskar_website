@@ -1,0 +1,134 @@
+{% include "admin/navbar.html" %}
+<div class="container  p-5 rounded-5 bg-white" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Achievements</h1>
+        </div>
+        <hr/>
+
+        
+
+        <form action="/admin/update_achievement/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-2 p-2">
+                        <p>Image</p>
+                        <input type="file" name="achivimage"  class="form-control" placeholder="Jan 1,2024"/>
+                    </div>
+
+                    <div class="col-md-2 p-2">
+                        <img src="/{{achievements.achivimage}}" width="100px" height="100px">
+                    </div>
+
+
+                    <div class="col-md-4 p-2">
+                        <p>Title</p>
+                        <input type="text" name="achivtitle"  value="{{achievements.achivtitle}}" class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Discription</p>
+                        <input type="text"  name="achivdis" value="{{achievements.achivdis}}" class="form-control">
+                    </div>
+
+                   
+
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+      
+        
+    </div>
+</div>
+
+</div>
+
+<hr>
+
+
+<div class="container  p-5 rounded-5 bg-white mt-5" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Achievements2</h1>
+        </div>
+        <hr/>
+
+        
+
+        <form action="/admin/save_achievements/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="row justify-content-center">
+
+                    <div class="col-md-2 p-2">
+                        <p>Image</p>
+                        <input type="file" name="achivimage"  class="form-control" >
+                    </div>
+
+
+                    <div class="col-md-4 p-2">
+                        <p>Date</p>
+                        <input type="text" name="achivdate" class="form-control" placeholder="Jan 1,2024"/>
+                    </div>
+
+
+                    <div class="col-md-4 p-2">
+                        <p>Title</p>
+                        <input type="text" name="achivtitle"  class="form-control" />
+                    </div>
+
+                    <div class="col-md-4 p-2">
+                        <p>Discription</p>
+                        <textarea name="achivdis"  class="form-control"></textarea>
+                    </div>
+
+                   
+
+                    <div class="col-md-12 text-center mt-5">
+                        <button class="btn btn-dark btn-outline-success text-white">UPLOAD</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-md-12 mt-5 table-responsive">
+            <table class="table table-sm table-borderd text-center" style="color: rgb(6, 3, 3); font-size: larger; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Image</th>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Discription</th>
+                    
+                </tr>
+                {% for i in achive %}
+                <tr>
+                    <td>                       
+                       
+                        <a href="/admin/delete_achive?id={{i.id}}">
+                            <button class="btn"><i class="fa fa-trash"></i></button>
+                        </a> 
+                    </td>
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        <img src="/{{i.achivimage}}">
+                    </td>
+                    <td>{{i.achivdate}}</td>
+                    <td>{{i.achivtitle}}</td>
+                    <td>{{i.achivdis}}</td> 
+                    
+                </tr> 
+                {% endfor %}
+            </table>
+        </div> 
+        
+    </div>
+</div>
+</div>
+{% include "admin/footer.html" %}
